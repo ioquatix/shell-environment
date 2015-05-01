@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "node test/test.js",
-    "prepublish": "coffee --compile --output . ."
+    "prepublish": "coffee --compile --output lib lib"
   },
   "devDependencies": {
     "vows": ">= 0.8.1",
