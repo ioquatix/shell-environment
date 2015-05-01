@@ -1,4 +1,4 @@
-# Login Environment
+# Shell Environment
 
 This package allows you to easily grab the login environment for the user even if the current process was launched from a GUI with little or no environment specified. This allows things like `rvm` to run correctly.
 

@@ -1,5 +1,5 @@
 {
-  "name": "login-environment",
+  "name": "shell-environment",
   "version": "1.0.0",
   "description": "Provides a hook for accessing the user's login environment, e.g. PATH, etc, even when running from a non-login shell environment.",
   "main": "lib/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioquatix/login-environment.git"
+    "url": "https://github.com/ioquatix/shell-environment.git"
   },
   "keywords": [
     "process",
@@ -24,7 +24,7 @@
   "author": "Samuel Williams <samuel.williams@oriontransfer.co.nz> (http://www.codeotaku.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ioquatix/login-environment/issues"
+    "url": "https://github.com/ioquatix/shell-environment/issues"
   },
-  "homepage": "https://github.com/ioquatix/login-environment"
+  "homepage": "https://github.com/ioquatix/shell-environment"
 }
