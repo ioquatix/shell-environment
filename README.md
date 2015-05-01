@@ -8,8 +8,11 @@ This was originally developed for Atom's [Script Runner](https://atom.io/package
 
 	LoginEnvironment = require 'login-environment'
 	
-	LoginEnvironment.fetchShellEnvironment (environment) =>
-		@child = ChildProcess.spawn(args[0], args.slice(1), env: environment)
+	LoginEnvironment.fetchShellEnvironment (error, environment) =>
+		if environment
+			@child = ChildProcess.spawn(args[0], args.slice(1), env: environment)
+		else
+			console.log(error)
 
 ## Contributing
 
