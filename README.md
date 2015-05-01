@@ -6,11 +6,13 @@ This was originally developed for Atom's [Script Runner](https://atom.io/package
 
 ## Usage
 
-	LoginEnvironment = require 'login-environment'
+A simple coffee script example:
+
+	ShellEnvironment = require 'shell-environment'
 	
-	LoginEnvironment.fetchShellEnvironment (error, environment) =>
+	ShellEnvironment.loginEnvironment (error, environment) =>
 		if environment
-			@child = ChildProcess.spawn(args[0], args.slice(1), env: environment)
+			child = ChildProcess.spawn(args[0], args.slice(1), env: environment)
 		else
 			console.log(error)
 
@@ -22,7 +24,7 @@ First install all dependencies:
 
 Then run tests:
 
-./node_modules/.bin/vows --spec
+	./node_modules/.bin/vows --spec
 
 ## Contributing
 
