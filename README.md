@@ -14,6 +14,16 @@ This was originally developed for Atom's [Script Runner](https://atom.io/package
 		else
 			console.log(error)
 
+### Running Tests
+
+First install all dependencies:
+
+	npm install
+
+Then run tests:
+
+./node_modules/.bin/vows --spec
+
 ## Contributing
 
 1. Fork it
