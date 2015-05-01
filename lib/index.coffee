@@ -3,7 +3,7 @@ ChildProcess = require 'child_process'
 class ShellEnvironment
   loginEnvironment: (callback) ->
     # I tried using ChildProcess.execFile but there is no way to set detached and this causes the child shell to lock up. This command runs an interactive login shell and executes the export command to get a list of environment variables. We then use these to run the script:
-    child = ChildProcess.spawn process.env.SHELL, ['-ilc', 'export'],
+    child = ChildProcess.spawn process.env.SHELL, ['-ilc', 'env'],
       # This is essential for interactive shells, otherwise it never finishes:
       detached: true,
       # We don't care about stdin, stderr can go out the usual way:
@@ -17,7 +17,7 @@ class ShellEnvironment
     child.on 'close', (code, signal) ->
       environment = {}
       for definition in buffer.split('\n')
-        [key, value] = definition.split('=', 2)
+        [key, value] = definition.trim().split('=', 2)
         environment[key] = value if key != ''
       callback(null, environment)
     
