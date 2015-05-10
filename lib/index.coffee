@@ -57,19 +57,22 @@ class ShellEnvironment
     
     # We buffer stdout:
     outputBuffer = ''
-    
     child.stdio[3].on 'data', (data) -> outputBuffer += data
     
     # When the process finishes, extract the environment variables and pass them to the callback:
     child.on 'close', (code, signal) ->
-      environment = {}
-      for definition in outputBuffer.split('\n')
-        [key, value] = definition.trim().split('=', 2)
-        environment[key] = value if key != ''
-      callback(null, environment)
+      if code != 0
+        callback("child process exited with non-zero status #{code}")
+      else
+        environment = {}
+        for definition in outputBuffer.split('\n')
+          [key, value] = definition.trim().split('=', 2)
+          environment[key] = value if key != ''
+        callback(null, environment)
     
     child.on 'error', (error) ->
-      callback(error, null)
+      console.log('error', error)
+      callback("child process failed with #{error}")
   
   # existing syntax, this is a static class method
   @loginEnvironment: (callback) ->
