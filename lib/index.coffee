@@ -35,7 +35,7 @@ class ShellEnvironment
         @setCachedEnvironment(environment)
         callback(error, environment)
     
-    return null
+    return undefined
   
   # Get the login environment from the shell if possible, if that fails return process.env which is the next best.
   getBestEnvironment: (callback) ->
@@ -43,7 +43,7 @@ class ShellEnvironment
       if environment
         callback(null, environment)
       else
-        console.warn(error)
+        console.warn("ShellEnvironment: #{error}" )
         callback(error, process.env)
   
   # Get the login environment by running env within a login shell, and parsing the results.
