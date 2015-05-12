@@ -23,7 +23,7 @@ vows
 	.addBatch
 		'with cache period':
 			topic: ->
-				shellEnvironment = new ShellEnvironment(cachePeriod: 1)
+				shellEnvironment = new ShellEnvironment(cachePeriod: 10)
 				shellEnvironment.getEnvironment (this.callback.bind(null, shellEnvironment))
 			'results in valid cache': (shellEnvironment, error, result) ->
 				assert(shellEnvironment.isCacheValid())
@@ -33,4 +33,10 @@ vows
 				shellEnvironment.getEnvironment (this.callback.bind(null, shellEnvironment))
 			'results in no cache': (shellEnvironment, error, result) ->
 				assert(!shellEnvironment.isCacheValid())
+	.addBatch
+		'with shared shell environment':
+			topic: ->
+				ShellEnvironment.sharedShellEnvironment()
+			'should expose cache period': (topic) ->
+				assert.equal(topic.cachePeriod, 1)
 	.export(module)

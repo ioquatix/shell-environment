@@ -15,6 +15,8 @@ class ShellEnvironment
 		else
 			@command = 'env'
 	
+	
+	
 	# Returns true if the environment cache is valid.
 	isCacheValid: ->
 		# have a cache                              # and cache isn't too old
@@ -74,9 +76,11 @@ class ShellEnvironment
 			console.log('error', error)
 			callback("child process failed with #{error}")
 	
+	@sharedShellEnvironment: ->
+		@shellEnvironment ||= new ShellEnvironment()
+	
 	# existing syntax, this is a static class method
 	@loginEnvironment: (callback) ->
-		@shellEnvironment ||= new ShellEnvironment()
-		@shellEnvironment.getEnvironment(callback)
+		@sharedShellEnvironment().getEnvironment(callback)
 
 module.exports = ShellEnvironment
