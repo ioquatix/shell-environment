@@ -9,7 +9,7 @@ vows
 	.describe('Loading shell environment variables')
 	.addBatch({
 		'when loading from login shell': {
-			topic() { 
+			topic() {
 				return ShellEnvironment.loginEnvironment(this.callback);
 			},
 			'results in a valid path'(error, result) {

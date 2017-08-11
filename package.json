@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node test/test.js"
   },
+  "dependencies": {
+    "os-locale": ">= 2.1.0"
+  },
   "devDependencies": {
     "vows": ">= 0.8.1"
   },
