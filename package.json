@@ -1,6 +1,6 @@
 {
   "name": "shell-environment",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Provides a hook for accessing the user's login environment, e.g. PATH, etc, even when running from a non-login shell environment.",
   "main": "lib/index.js",
   "scripts": {
