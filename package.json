@@ -4,12 +4,10 @@
   "description": "Provides a hook for accessing the user's login environment, e.g. PATH, etc, even when running from a non-login shell environment.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "node test/test.js",
-    "prepublish": "coffee --compile --output lib lib"
+    "test": "node test/test.js"
   },
   "devDependencies": {
-    "vows": ">= 0.8.1",
-    "coffee-script": ">= 1.7"
+    "vows": ">= 0.8.1"
   },
   "repository": {
     "type": "git",
